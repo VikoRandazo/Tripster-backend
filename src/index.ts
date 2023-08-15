@@ -7,11 +7,11 @@ import path from "path";
 const server = express();
 
 const _dirname = path.dirname("");
-const buildPath = path.join(__dirname, process.env.DIST_FOLDER as string);
+const buildPath = path.join(__dirname, "../../frontend/client/build" as string);
 server.use(express.static(buildPath));
 
 server.get(`/`, (req, res) => {
-  res.sendFile(path.join(__dirname, process.env.DIST_FOLDER as string, buildPath, "index.html"), (err) => {
+  res.sendFile(path.join(__dirname, "../../frontend/client/build" as string, buildPath, "index.html"), (err) => {
     if (err) {
       res.status(500).send(err);
     }
